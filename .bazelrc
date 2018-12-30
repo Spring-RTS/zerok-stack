@@ -1,0 +1,38 @@
+# Global bazel options for spring.
+
+build --host_crosstool_top=@bazel_tools//tools/cpp:toolchain
+build --crosstool_top=//toolchain:default-toolchain
+build --cpu=amd64
+build --compiler=gcc
+build -c dbg
+
+build --spawn_strategy=standalone
+
+build --cxxopt="-fvisibility-inlines-hidden"
+
+build --copt="-DNDEBUG"
+build --copt="-O2"
+build --copt="-fno-strict-aliasing"
+build --copt="-frounding-math"
+build --copt="-mfpmath=sse"
+build --copt="-mieee-fp"
+build --copt="-mno-avx"
+build --copt="-mno-avx2"
+build --copt="-mno-fma"
+build --copt="-mno-fma4"
+build --copt="-mno-lwp"
+build --copt="-mno-sse2"
+build --copt="-mno-sse3"
+build --copt="-mno-sse4"
+build --copt="-mno-sse4.1"
+build --copt="-mno-sse4.2"
+build --copt="-mno-sse4a"
+build --copt="-mno-ssse3"
+build --copt="-mno-xop"
+build --copt="-msse"
+
+build --copt="-fsanitize=address"
+build --linkopt="-fsanitize=address"
+
+build --per_file_copt="/flt-32/@-DLIBM_COMPILING_FLT32=1"
+build --per_file_copt="/flt-32/@-Ithird_party/spring/rts/lib/streflop/libm/headers"

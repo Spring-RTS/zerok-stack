@@ -1,0 +1,7 @@
+cc_library(
+    name = "freetype",
+    srcs = ["lib/libfreetype.dylib"],
+    hdrs = glob(["include/freetype2/**/*.h"]),
+    includes = ["include/freetype2"],
+    visibility = ["//visibility:public"],
+)
